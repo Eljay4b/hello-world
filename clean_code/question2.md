@@ -5,7 +5,7 @@ a) [10 pts] Write a Python function that reads the Supermarket Sales data into a
 Note: The first line of the CSV contains the column headings, therefore it should not be stored in the 2 dimensional data list. You can skip the first line of the data file
 
 b) [5 pts] Write a function to receive the Supermarket Sales list (that you created in the previous question) and return the total sales (the sum of column Total) of the branches as a dictionary
-The returned information should look like (the numbers given below may not be correct): {"A": 123456.123, "B": 234567.567, "C": 345678.9987}
+  The returned information should look like (the numbers given below may not be correct): {"A": 123456.123, "B": 234567.567, "C": 345678.9987}
 
 c) [5 pts] Write a function to receive the Supermarket Sales list and return an object (maybe a list or a dictionary) containing the total number of sales per Branch and per Customer Type.
 The returned information can be either one of the below choices or another (The numbers given below may not be correct):)
