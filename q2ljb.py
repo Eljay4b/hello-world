@@ -29,15 +29,22 @@ totals = branch_totals(smData)
 print(totals)
 
 #C
-def simplified_data(items):
+def branch_custType_totals(items):
     simple_list=[]
     for item in items:
         simple_list.append({"Branch":item[1],"CustType": item[3], "Total":item[9]})
-    return simple_list
+
+
+    # now we can use this simple data to loop through more easily
+    for item in simple_list():
+        if item['Branch']=="A" and item['CustType']=="Normal":
+            do something
+        etc etc.
+        
 
 
 
-print(simplified_data(smData))
+
 sys.exit()
 
 
