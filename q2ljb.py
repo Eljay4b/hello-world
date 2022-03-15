@@ -32,7 +32,7 @@ print(totals)
 def simplified_data(items):
     simple_list=[]
     for item in items:
-        simple_list.append(item[1],item[3],item[9])
+        simple_list.append({"Branch":item[1],"CustType": item[3], "Total":item[9]})
     return simple_list
 
 
