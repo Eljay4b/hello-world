@@ -29,13 +29,15 @@ totals = branch_totals(smData)
 print(totals)
 
 #C
-def build_dict(itemsArray):
-    d={}
+def simplified_data(items):
+    simple_list=[]
+    for item in items:
+        simple_list.append(item[1],item[3],item[9])
+    return simple_list
 
-    for item in itemsArray:
-        d[item[1][3]]
 
 
+print(simplified_data(smData))
 sys.exit()
 
 
