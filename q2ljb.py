@@ -12,7 +12,6 @@ def read_data(filename):
       for line in csvfile:
         return list(csv.reader(csvfile))
 
-
 #q2b
 #print(smData)
 
@@ -24,23 +23,24 @@ def branch_totals(itemsArray):
 
 
 
+def report_dict(data):
+    def total(items,branch,custType):
+        sub_totals = [float(row[9]) for row in items if row[1]==branch and row[3] == custType]
+        return round(sum(sub_totals),4)
+
+    # now that we have a reusable method, we can build our report dict
+    dict = {
+        'A': {'Normal':total(smData,"A","Normal"), 'Member':total(smData,"A","Normal")},
+        'B': {'Normal':total(smData,"B","Normal"), 'Member':total(smData,"B","Normal")},
+        'C': {'Normal':total(smData,"C","Normal"), 'Member':total(smData,"C","Normal")}
+    }
+    return dict
+
 smData = read_data('supermarket_sales.csv')
 totals = branch_totals(smData)
-print(totals)
+from pprint import pprint
+pprint(report_dict(smData))
 
-#C
-def branch_custType_totals(items):
-    simple_list=[]
-    for item in items:
-        simple_list.append({"Branch":item[1],"CustType": item[3], "Total":item[9]})
-
-
-    # now we can use this simple data to loop through more easily
-    for item in simple_list():
-        if item['Branch']=="A" and item['CustType']=="Normal":
-            do something
-        etc etc.
-        
 
 
 
