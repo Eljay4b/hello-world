@@ -1,10 +1,7 @@
-#q2a
+'''
+Question 2
+'''
 import csv
-
-import sys
-
-#global itemsArray
-itemsArray = []
 
 def read_data(filename):
     with open(filename) as csvfile:
@@ -12,8 +9,6 @@ def read_data(filename):
       for line in csvfile:
         return list(csv.reader(csvfile))
 
-#q2b
-#print(smData)
 
 def branch_totals(itemsArray):
     totals_dict = {}
@@ -28,20 +23,21 @@ def report_dict(data):
         sub_totals = [float(row[9]) for row in items if row[1]==branch and row[3] == custType]
         return round(sum(sub_totals),4)
 
-    # now that we have a reusable method, we can build our report dict
+    # Building a dict to use later for printing report
     dict = {
-        'A': {'Normal':total(smData,"A","Normal"), 'Member':total(smData,"A","Normal")},
-        'B': {'Normal':total(smData,"B","Normal"), 'Member':total(smData,"B","Normal")},
-        'C': {'Normal':total(smData,"C","Normal"), 'Member':total(smData,"C","Normal")}
+        'A': {'Normal':total(smData,"A","Normal"), 'Member':total(smData,"A","Member")},
+        'B': {'Normal':total(smData,"B","Normal"), 'Member':total(smData,"B","Member")},
+        'C': {'Normal':total(smData,"C","Normal"), 'Member':total(smData,"C","Member")}
     }
     return dict
 
 smData = read_data('supermarket_sales.csv')
 totals = branch_totals(smData)
+# print out the branch totals
 from pprint import pprint
-pprint(report_dict(smData))
-# So now that you have a nice dict, it should be elementary to use it to print a
-# human readalbe report by accessing nested keys
+pprint(totals)
+
+# make report by making hierarchical dict and then accessing nested keys 
 dict = report_dict(smData)
 
 print(f"""
